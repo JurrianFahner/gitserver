@@ -1,0 +1,55 @@
+#!/bin/bash
+
+
+if [ ${#} -eq 2 ]; then
+	projectname="${2}"
+	projectname=${projectname/.git/}
+	repodir="$projectname.git"
+fi	
+
+cd /opt/git
+
+case ${1} in
+	create)
+		if [ ${#} -eq 2 ]; then
+			echo "cd /opt/git" > ./tempScript.sh
+			echo "mkdir $repodir" >> ./tempScript.sh
+			echo "cd $repodir" >> ./tempScript.sh
+			echo "git --bare init" >> ./tempScript.sh
+			chmod ugo+x ./tempScript.sh
+			chown git: ./tempScript.sh
+			su -c /opt/git/tempScript.sh -s /bin/bash git
+			echo -e "\nUse following line to add this repo to your project ${projectname}: "
+			echo "git remote add origin git@gitserver:/opt/git/$repodir"
+		else
+			echo -e "Usage: repo create REPOSITORY"
+		fi
+		;;
+	rm|remove)
+		if [ ${#} -eq 2 ]; then
+			rm -rf "./$repodir"
+			if [ $? -eq 0 ]; then
+				echo "$projectname is removed"
+			else 
+				echo "$projectname couldn't be removed"
+			fi
+		else
+			echo -e "Usage: repo rm REPOSITORY"
+		fi
+		;;
+	ls|list)
+		for project in `ls -1 .`;
+		do
+			echo ${project/.git/};
+		done
+		;;
+	*)
+	    echo -e "Usage: repo COMMAND arg\n"
+	    echo -e "A simple git repository control.\n"
+	    echo "Commands:"
+	    echo "    create     Creates repository"
+	    echo "    rm         Removes repository"
+	    echo "    list       Lists repositories"
+		
+esac
+
