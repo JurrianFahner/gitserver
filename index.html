@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Gitserver by JurrianFahner</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Gitserver</h1>
+          <h2>A git repository running in a docker container</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/JurrianFahner/gitserver/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/JurrianFahner/gitserver/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/JurrianFahner/gitserver" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h3>
+<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h3>
+
+<p>Sometimes you wonder could life not a bit easier...</p>
+
+<blockquote>
+<p>Life is really simple, but we insist on making it complicated. <em>Confucius</em>
+Well to create a git server you need to have two ingredients:
+1. Git
+2. Ssh server</p>
+</blockquote>
+
+<p>These two pieces of software are not always so straightforward to setup. However I believe the software developers have done everything they could do to make it simple as possible. </p>
+
+<h3>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker</h3>
+
+<p>Docker is a nice way to put pieces of software in containers. One of the big advantages of docker is that you can use only what you need to run a particular piece of software. 
+Docker images tends to grow and sizes of more than 500MB are not uncommon. To reduce the size you can choose from many different linux distributions. I picked <a href="http://www.alpinelinux.org/">alpine linux</a> to do the job¸as docker image is it is emere 2MB in size. For reference ubuntu starts at 50MB.</p>
+
+<h3>
+<a id="security" class="anchor" href="#security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h3>
+
+<p>Security plays an important role in this project. You can find details of hardening the ssh server on this page: <a href="https://stribika.github.io/2015/01/04/secure-secure-shell.html">https://stribika.github.io/2015/01/04/secure-secure-shell.html</a></p>
+
+<h3>
+<a id="lets-get-started" class="anchor" href="#lets-get-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lets get started</h3>
+
+<p>First you want a running gitserver. </p>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+
+<h3>
+<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+        </section>
+
+        <footer>
+          Gitserver is maintained by <a href="https://github.com/JurrianFahner">JurrianFahner</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-72167148-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
