@@ -36,14 +36,12 @@
 
 <p>Sometimes you wonder could life not a bit easier...</p>
 
-<blockquote><p>Life is really simple, but we insist on making it complicated. <em>Confucius</em></p></blockquote>
-
-<p>
+<blockquote>
+<p>Life is really simple, but we insist on making it complicated. <em>Confucius</em>
 Well to create a git server you need to have two ingredients:
-<ol>
-<li>Git</li>
-<li>Ssh server</li>
-</ol></p>
+1. Git
+2. Ssh server</p>
+</blockquote>
 
 <p>These two pieces of software are not always so straightforward to setup. However I believe the software developers have done everything they could do to make it simple as possible. </p>
 
@@ -59,31 +57,40 @@ Docker images tends to grow and sizes of more than 500MB are not uncommon. To re
 <p>Security plays an important role in this project. You can find details of hardening the ssh server on this page: <a href="https://stribika.github.io/2015/01/04/secure-secure-shell.html">https://stribika.github.io/2015/01/04/secure-secure-shell.html</a></p>
 
 <h3>
-<a id="lets-get-started" class="anchor" href="#lets-get-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lets get started</h3>
+<a id="lets-get-started" class="anchor" href="#lets-get-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Let's get started</h3>
 
 <p>First you want a running gitserver. </p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+<div class="highlight highlight-source-shell"><pre>docker run -d -p 2222:22 --restart always --name devteam ensignprojects/gitserver</pre></div>
 
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a id="configure-this-server" class="anchor" href="#configure-this-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure this server</h3>
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+<p>You want to use host key files to make your server unique</p>
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
+<div class="highlight highlight-source-shell"><pre>docker <span class="pl-c1">exec</span> -it devteam recreatehostfiles</pre></div>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>For safety you can remove this script</p>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<div class="highlight highlight-source-shell"><pre>docker <span class="pl-c1">exec</span> -it devteam rm /usr/bin/recreatehostfiles</pre></div>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Add the signed keys to the gitservers of each member of the developer team who needs access to the software projects on the server. If you want to know how to generate these keys, go to: <a href="https://help.github.com/articles/generating-ssh-keys/">https://help.github.com/articles/generating-ssh-keys/</a></p>
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<div class="highlight highlight-source-shell"><pre>docker <span class="pl-c1">exec</span> -it devteam addkey ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD6hLTCJQ0J9e3KxrG3dqZqWY/Wth9gHT6KyOgylTsmaRHKQfa1Xsdsj54S/JOM/pVqK9XK00KHxWUovvvaLlXErjOgb2PWaJa/0HNtMo80M6nXAtWcP07fSTxdvSZd+ZJC+DszkSciAZmeMKhKAb2+JT/rlCS1a1DF6GpGSsG2Pzo+iuViIywRbdik1fmDmNPyAdauQW6JG5ulBiWBph8/ElpE8DLBwaINUrN4m/tShUUIyB3wI+e5ublGlIheRkkmj66vKvcvTt93GxmLlPR/kg+oY0T8ygZZu5GKQifAVvsy2jgqlKegPHtltr7dpixrPK6b2jA3fWl6VG6f/pa9xOpSJzeimvIA6KInDkVbkwueW662aVPW7OrxUwxFsh56bUrKdpE+e7o6VByA3nAz9KBIEY9JXV/3oUoxJ7zv+vOKN/3vtep2YhianQr4Yzx9/QDlUFcYwANfljRZlQpbEvra8gyhShYC8RUGaeRQqnzJ5hDKZWNswpPyJkCAPS5d940y0R52DFENowlImuhS+QRgrLPOtTqFvkFNb2TmKRUaVXT9sa9ooGmcb/FsxBLvk0mm0yWqi+LO6FSlQwEfipOTvAVqJNeFFZVbqMbgrZczHZkbaVG6QBHQxw9qZfSWtuY7Iku6HcX6GR1+cKYdfXa4yUwy04afEi978jwV4Q== your_email@example.com</pre></div>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<p><em>or</em> </p>
+
+<div class="highlight highlight-source-shell"><pre>docker <span class="pl-c1">exec</span> -it devteam addkey <span class="pl-s"><span class="pl-pds">`</span>cat <span class="pl-k">~</span>/.ssh/id_rsa.pub<span class="pl-pds">`</span></span></pre></div>
+
+<p>Create a git repository</p>
+
+<div class="highlight highlight-source-shell"><pre>docker <span class="pl-c1">exec</span> -it devteam repo create project</pre></div>
+
+<p>Add the remote repository to your own git repo</p>
+
+<div class="highlight highlight-source-shell"><pre>git remote add origin git@gitserver:/opt/git/project.git</pre></div>
+
+<p>To get more info to get started with git, you can find a detailed description in <a href="https://git-scm.com/book/it/v2/Git-on-the-Server-Setting-Up-the-Server">https://git-scm.com/book/it/v2/Git-on-the-Server-Setting-Up-the-Server</a></p>
         </section>
 
         <footer>
