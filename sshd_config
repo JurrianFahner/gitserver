@@ -1,0 +1,20 @@
+#	$OpenBSD: sshd_config,v 1.97 2015/08/06 14:53:21 deraadt Exp $
+
+# Modification inspired by https://stribika.github.io/2015/01/04/secure-secure-shell.html
+
+Port 22
+
+Protocol 2
+
+PubkeyAuthentication yes
+
+AuthorizedKeysFile	.ssh/authorized_keys
+
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-ripemd160-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,hmac-ripemd160,umac-128@openssh.com
+
+UsePrivilegeSeparation sandbox		# Default for new installations.
