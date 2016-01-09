@@ -19,6 +19,7 @@ case ${1} in
 			chmod ugo+x ./tempScript.sh
 			chown git: ./tempScript.sh
 			su -c /opt/git/tempScript.sh -s /bin/bash git
+			rm ./tempScript.sh
 			echo -e "\nUse following line to add this repo to your project ${projectname}: "
 			echo "git remote add origin git@gitserver:/opt/git/$repodir"
 		else
