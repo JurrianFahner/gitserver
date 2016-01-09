@@ -6,6 +6,7 @@ RUN apk update && apk upgrade && apk add bash openssh git
 
 #Copy scripts
 ADD addkey /usr/bin/
+ADD key /usr/bin/
 ADD recreatehostfiles /usr/bin/
 ADD repo /usr/bin/
 
