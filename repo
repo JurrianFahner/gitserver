@@ -50,7 +50,7 @@ case ${1} in
 	    echo "Commands:"
 	    echo "    create     Creates repository"
 	    echo "    rm         Removes repository"
-	    echo "    list       Lists repositories"
+	    echo "    ls         Lists repositories"
 		
 esac
 

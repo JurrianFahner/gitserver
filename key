@@ -1,3 +1,65 @@
 #!/bin/bash
 key="${2} ${3} ${4}"
-echo $key >> /home/git/.ssh/authorized_keys
+cmd="${1}"
+revealKeyChars=10
+
+case $cmd in
+	add)
+		if [ ${#} -eq 4 ]; then
+			echo $key >> /home/git/.ssh/authorized_keys
+			if [ $? -eq 0 ]; then
+				echo "Key is added"
+			else 
+				echo "Problem: Key couldn't be added"
+			fi
+		else 
+			echo "Problem: Wrong number of arguments"
+		fi			
+		;;
+	ls|list) 
+		#for authkey in ;
+		keyNumber=1
+		echo "# : key"
+		while read line
+		do
+			index1=`expr index "$line" " "`
+			keyalg=${line:0:index1 - 1}
+			startKey=`expr index1+1`
+			endKey=`expr index "${line:startKey}" " "`
+			before=`expr $endKey - $revealKeyChars`
+			keyenc="${line:index1:revealKeyChars}...${line:before:revealKeyChars}"
+			comments="${line:endKey}"
+			echo "$keyNumber : $keyalg $keyenc $comments"
+			(( keyNumber += 1 ))
+		done < /home/git/.ssh/authorized_keys
+		;;
+	rm)
+		if [ ${#} -eq 2 ]; then
+			keyNumber="${2}d"
+			sed -i "$keyNumber" /home/git/.ssh/authorized_keys
+			if [ $? -eq 0 ]; then
+				echo "Key is succesfully removed"
+			else 
+				echo "A problem occurred on removal"
+			fi
+
+		else 
+			echo -e "Usage: key rm [number of the key] \n" 
+			key ls
+		fi			
+		;;
+	*)
+	    echo -e "Usage: key COMMAND arg\n"
+	    echo -e "User administration for the gitserver.\n"
+	    echo "Commands:"
+	    echo "    add        Adds user's key to authorized keys"
+	    echo "    rm         Removes user's key"
+	    echo "    ls         Lists all keys"
+esac
+
+
+
+
+
+
+
