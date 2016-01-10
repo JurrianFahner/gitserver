@@ -1,4 +1,4 @@
-## Getting started on linux or mac
+# Getting started on linux or mac
 This section of the online docs helps you to get started real quick. 
 
 ## Prerequisites
