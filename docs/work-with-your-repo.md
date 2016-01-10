@@ -22,4 +22,4 @@ git commit -m "Comment: init git and added some files"
 git push
 ```
 
-You are ready and have fun with this tool!
+If you want to learn git in a practical way, I can recommend https://try.github.io
