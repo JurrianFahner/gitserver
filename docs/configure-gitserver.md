@@ -24,7 +24,7 @@ docker exec -it devteam rm /usr/bin/recreatehostfiles
 For each member you can add their keys.
 
 ```
-docker exec -it devteam [key add] [key]
+docker exec -it devteam [key add](http://nu.nl) [key]
 ```
 
 Full example:
