@@ -1,6 +1,6 @@
 # Get started with gitserver
 The first thing you want to do is start the gitserver, it's just a one liner:
-```shell
+```docker
 docker run -d -p 2222:22 --restart always --name devteam ensignprojects/gitserver
 ```
 
