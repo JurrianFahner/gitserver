@@ -20,7 +20,7 @@ Now the script is useless for the future, you can remove this script:
 docker exec -it devteam rm /usr/bin/recreatehostfiles
 ```
 
-## [Add keys](./useful-commandsCommand key.md) for the members of the development team
+## [Add keys](./useful-commands/Command key.md) for the members of the development team
 For each member you can add their keys.
 
 ```
