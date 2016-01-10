@@ -1,22 +1,28 @@
 # Get started with gitserver
+
 The first thing you want to do is start the gitserver, it's just a one liner:
+
 ```
 docker run -d -p 2222:22 --restart always --name devteam ensignprojects/gitserver
 ```
 
 ## Reset the hostkeys of this server
+
 You want to use fresh host key files to make your server unique.
+
 ```
 docker exec -it devteam recreatehostfiles
 ```
 
 Now the script is useless for the future, you can remove this script:
+
 ```
 docker exec -it devteam rm /usr/bin/recreatehostfiles
 ```
 
 ## Add keys for the members of the development team
 For each member you can add their keys.
+
 ```
 docker exec -it devteam key add [key]
 ```
