@@ -8,7 +8,7 @@ mkdir ~/.ssh
 chmod 700 ~/.ssh
 ```
 
-### Create config file
+## Create config file
 The config file of your ssh client enables you to configure your preferences on the client side.
 
 ```shell
@@ -25,8 +25,11 @@ Host gitserver
         IdentityFile ~/.ssh/id_rsa.gitserver.pub
 ```
 
-### Create key
+## Create key
 You can increase the security of your key by entering a passphrase. It is considered less secure not providing a passphrase.
 ```shell
 ssh-keygen -t rsa -b 4096 -C "your name and/or id and/or some comment" -f ~/.ssh/id_rsa.gitserver
 ```
+
+## SSH client is ready
+The ssh client is now ready, you can now continue with the gitserver manual.
