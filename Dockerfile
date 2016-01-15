@@ -16,10 +16,10 @@ ADD sshd_config /etc/ssh/
 #Empty motd, because you don't want to help hackers to figure out which distro you are running
 RUN echo -n "" > /etc/motd
 
-#Create initial host keys
+#Create initial host keys 
 WORKDIR /etc/ssh
 RUN ssh-keygen -N "" -t ed25519 -f ssh_host_ed25519_key < /dev/null
-RUN ssh-keygen -N "" -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
+#RUN ssh-keygen -N "" -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 
 #Create git user
 RUN adduser -D -s /usr/bin/git-shell git

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+rhf="/usr/bin/recreatehostfiles"
+if [ -e "$rhf" ]
+	then
+	/usr/bin/recreatehostfiles
+	rm "$rhf"
+fi
 
 if [ ${#} -eq 2 ]; then
 	projectname="${2}"
