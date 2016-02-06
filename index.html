@@ -79,11 +79,11 @@ Docker images tends to grow and sizes of more than 500MB are not uncommon. To re
 
 <p>Add the signed keys to the gitservers of each member of the developer team who needs access to the software projects on the server. If you want to know how to generate these keys, go to: <a href="https://help.github.com/articles/generating-ssh-keys/">https://help.github.com/articles/generating-ssh-keys/</a></p>
 
-<div class="highlight highlight-source-shell"><pre>docker exec -it devteam addkey ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD6hLTCJQ0J9e3KxrG3dqZqWY/Wth9gHT6KyOgylTsmaRHKQfa1Xsdsj54S/JOM/pVqK9XK00KHxWUovvvaLlXErjOgb2PWaJa/0HNtMo80M6nXAtWcP07fSTxdvSZd+ZJC+DszkSciAZmeMKhKAb2+JT/rlCS1a1DF6GpGSsG2Pzo+iuViIywRbdik1fmDmNPyAdauQW6JG5ulBiWBph8/ElpE8DLBwaINUrN4m/tShUUIyB3wI+e5ublGlIheRkkmj66vKvcvTt93GxmLlPR/kg+oY0T8ygZZu5GKQifAVvsy2jgqlKegPHtltr7dpixrPK6b2jA3fWl6VG6f/pa9xOpSJzeimvIA6KInDkVbkwueW662aVPW7OrxUwxFsh56bUrKdpE+e7o6VByA3nAz9KBIEY9JXV/3oUoxJ7zv+vOKN/3vtep2YhianQr4Yzx9/QDlUFcYwANfljRZlQpbEvra8gyhShYC8RUGaeRQqnzJ5hDKZWNswpPyJkCAPS5d940y0R52DFENowlImuhS+QRgrLPOtTqFvkFNb2TmKRUaVXT9sa9ooGmcb/FsxBLvk0mm0yWqi+LO6FSlQwEfipOTvAVqJNeFFZVbqMbgrZczHZkbaVG6QBHQxw9qZfSWtuY7Iku6HcX6GR1+cKYdfXa4yUwy04afEi978jwV4Q== your_email@example.com</pre></div>
+<div class="highlight highlight-source-shell"><pre>docker exec -it devteam key add ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD6hLTCJQ0J9e3KxrG3dqZqWY/Wth9gHT6KyOgylTsmaRHKQfa1Xsdsj54S/JOM/pVqK9XK00KHxWUovvvaLlXErjOgb2PWaJa/0HNtMo80M6nXAtWcP07fSTxdvSZd+ZJC+DszkSciAZmeMKhKAb2+JT/rlCS1a1DF6GpGSsG2Pzo+iuViIywRbdik1fmDmNPyAdauQW6JG5ulBiWBph8/ElpE8DLBwaINUrN4m/tShUUIyB3wI+e5ublGlIheRkkmj66vKvcvTt93GxmLlPR/kg+oY0T8ygZZu5GKQifAVvsy2jgqlKegPHtltr7dpixrPK6b2jA3fWl6VG6f/pa9xOpSJzeimvIA6KInDkVbkwueW662aVPW7OrxUwxFsh56bUrKdpE+e7o6VByA3nAz9KBIEY9JXV/3oUoxJ7zv+vOKN/3vtep2YhianQr4Yzx9/QDlUFcYwANfljRZlQpbEvra8gyhShYC8RUGaeRQqnzJ5hDKZWNswpPyJkCAPS5d940y0R52DFENowlImuhS+QRgrLPOtTqFvkFNb2TmKRUaVXT9sa9ooGmcb/FsxBLvk0mm0yWqi+LO6FSlQwEfipOTvAVqJNeFFZVbqMbgrZczHZkbaVG6QBHQxw9qZfSWtuY7Iku6HcX6GR1+cKYdfXa4yUwy04afEi978jwV4Q== your_email@example.com</pre></div>
 
 <p><em>or</em> </p>
 
-<div class="highlight highlight-source-shell"><pre>docker exec -it devteam addkey <span class="pl-s"><span class="pl-pds">`</span>cat <span class="pl-k">~</span>/.ssh/id_rsa.pub<span class="pl-pds">`</span></span></pre></div>
+<div class="highlight highlight-source-shell"><pre>docker exec -it devteam key add <span class="pl-s"><span class="pl-pds">`</span>cat <span class="pl-k">~</span>/.ssh/id_rsa.pub<span class="pl-pds">`</span></span></pre></div>
 
 <p>Create a git repository</p>
 
