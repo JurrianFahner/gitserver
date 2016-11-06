@@ -13,7 +13,7 @@ ADD repo /usr/bin/
 #Harden ssh server
 ADD sshd_config /etc/ssh/
 
-#Empty motd, because you don't want to help hackers to figure out which distro you are running
+#Empty motd
 RUN echo -n "" > /etc/motd
 
 #Create initial host keys 
